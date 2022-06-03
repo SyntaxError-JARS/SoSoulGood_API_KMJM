@@ -3,11 +3,9 @@ package com.revature.SoSoulGood.Web.Servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.SoSoulGood.Exceptions.InvalidRequestException;
 import com.revature.SoSoulGood.Exceptions.ResourcePersistanceException;
-import com.revature.SoSoulGood.Models.CreditCard;
-import com.revature.SoSoulGood.Models.Customer;
 import com.revature.SoSoulGood.Models.Menu;
 import com.revature.SoSoulGood.Services.MenuServices;
-import com.revature.SoSoulGood.Services.CustomerServices;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

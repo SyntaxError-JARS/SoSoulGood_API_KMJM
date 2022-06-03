@@ -3,12 +3,7 @@ package com.revature.SoSoulGood.Web.Servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.SoSoulGood.Exceptions.InvalidRequestException;
 import com.revature.SoSoulGood.Exceptions.ResourcePersistanceException;
-import com.revature.SoSoulGood.Models.CreditCard;
-import com.revature.SoSoulGood.Models.Customer;
-import com.revature.SoSoulGood.Models.Menu;
 import com.revature.SoSoulGood.Models.Order;
-import com.revature.SoSoulGood.Services.MenuServices;
-import com.revature.SoSoulGood.Services.CustomerServices;
 import com.revature.SoSoulGood.Services.OrderServices;
 
 import javax.servlet.ServletException;
@@ -66,12 +61,10 @@ public class OrderServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-        //Ordersif(!checkAuth(req, resp)) return;
         Order authOrder = (Order) req.getSession().getAttribute("authOrder");
 
         Order reqOrder = mapper.readValue(req.getInputStream(), Order.class);
 
-        //if(authOrders.getUsername().equals(reqOrders.getUsername())) {
 
         Order updatedOrder = orderServices.update(reqOrder);
 

@@ -64,21 +64,15 @@ public class CustomerServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-        //if(!checkAuth(req, resp)) return;
         Customer authCustomer = (Customer) req.getSession().getAttribute("authCustomer");
 
         Customer reqCustomer = mapper.readValue(req.getInputStream(), Customer.class);
 
-        //if(authCustomer.getUsername().equals(reqCustomer.getUsername())) {
 
         Customer updatedCustomer = CustomerServices.update(reqCustomer);
 
         String payload = mapper.writeValueAsString(updatedCustomer);
         resp.getWriter().write(payload);
-        //} else {
-//            resp.getWriter().write("id provided does not match the user currently logged in");
-//            resp.setStatus(403);
-        //}
 
     }
 
@@ -119,10 +113,6 @@ public class CustomerServlet extends HttpServlet {
         String username = req.getParameter("username");
         Customer authCustomer = (Customer) req.getSession().getAttribute("authCustomer");
 
-//        if(!authCustomer.getUsername().equals(username)){
-//            resp.getWriter().write("username provided does not match the user logged in, double check for confirmation of deletion");
-//            return;
-//        }
 
         try {
             CustomerServices.delete(username);
