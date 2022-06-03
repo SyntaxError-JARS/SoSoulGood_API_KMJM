@@ -1,11 +1,15 @@
 package com.revature.SoSoulGood.Models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Menu")
 public class Menu {
 
     private String menuItem;
     private int price;
-    private int calories;
-    private boolean Changeable;
+    private int protein;
+    private boolean Substitutable;
 
 
     @Override
@@ -13,8 +17,8 @@ public class Menu {
         return "Menu{" +
                 "menuItem='" + menuItem + '\'' +
                 ", price=" + price +
-                ", protein=" + calories +
-                ", Changeable=" + Changeable +
+                ", protein=" + protein +
+                ", Substitutable=" + Substitutable +
                 '}';
     }
 
@@ -37,19 +41,19 @@ public class Menu {
         this.price = price;
     }
 
-    public int getCalories() {
-        return calories;
+    public int getProtein() {
+        return protein;
     }
 
-    public void setCalories(int calories) {
-        this.calories = calories;
+    public void setProtein(int protein) {
+        this.protein = protein;
     }
 
-    public boolean getChangeable() {
-        return Changeable;
+    public boolean getSubstitutable() {
+        return Substitutable;
     }
 
-    public void setChangeable(boolean changeable) {
-        this.Changeable = Changeable;
+    public void setSubstitutable(boolean Substitutable) {
+        this.Substitutable = Substitutable;
     }
 }

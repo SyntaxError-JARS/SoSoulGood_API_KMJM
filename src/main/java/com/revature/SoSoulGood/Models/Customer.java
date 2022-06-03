@@ -1,5 +1,9 @@
 package com.revature.SoSoulGood.Models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Customer")
 public class Customer {
 
     private String username;
@@ -33,19 +37,19 @@ public class Customer {
         this.username = username;
     }
 
-    public String getFname() {
+    public String getfname() {
         return fname;
     }
 
-    public void setFname(String fname) {
+    public void setfname(String fname) {
         this.fname = fname;
     }
 
-    public String getLname() {
+    public String getlname() {
         return lname;
     }
 
-    public void setLname(String lname) {
+    public void setlname(String lname) {
         this.lname = lname;
     }
 

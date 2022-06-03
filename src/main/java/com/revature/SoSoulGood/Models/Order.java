@@ -1,5 +1,9 @@
 package com.revature.SoSoulGood.Models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Order")
 public class Order {
 
     private String username;
@@ -7,7 +11,7 @@ public class Order {
     private String menuItem;
     private String comment;
     private String orderDate;
-    private boolean isfavorite;
+    private boolean isFavorite;
 
 
     public Order(String username, int id, String menuItem, String comment, String orderDate, boolean favorite) {
@@ -17,7 +21,7 @@ public class Order {
         this.menuItem = menuItem;
         this.comment = comment;
         this.orderDate = orderDate;
-        this.isfavorite = favorite;
+        this.isFavorite = isFavorite();
     }
 
 
@@ -29,7 +33,7 @@ public class Order {
                 ", menuItem='" + menuItem + '\'' +
                 ", comment='" + comment + '\'' +
                 ", orderDate='" + orderDate + '\'' +
-                ", isfavorite='" + isfavorite + '\'' +
+                ", isFavorite='" + isFavorite + '\'' +
                 '}';
     }
 
@@ -76,10 +80,10 @@ public class Order {
     }
 
     public boolean isFavorite() {
-        return isfavorite;
+        return isFavorite();
     }
 
     public void setFavorite(boolean favorite) {
-        this.isfavorite = favorite;
+        this.isFavorite = favorite;
     }
 }
