@@ -19,7 +19,6 @@ public class CustomerServices {
 
 
     public List<Customer> readAll(){
-        // TODO: What CustomerDao intellisense telling me?
         List<Customer> customers = customerDao.findAll();
         return customers;
     }

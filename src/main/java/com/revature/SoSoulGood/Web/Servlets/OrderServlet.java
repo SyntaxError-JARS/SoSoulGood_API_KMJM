@@ -77,10 +77,6 @@ public class OrderServlet extends HttpServlet {
 
         String payload = mapper.writeValueAsString(updatedOrder);
         resp.getWriter().write(payload);
-        //} else {
-//            resp.getWriter().write("id provided does not match the user currently logged in");
-//            resp.setStatus(403);
-        //}
 
     }
 
@@ -121,10 +117,6 @@ public class OrderServlet extends HttpServlet {
         String username = req.getParameter("id");
         Order authOrder = (Order) req.getSession().getAttribute("authOrder");
 
-//        if(!authOrdersCard.getUsername().equals(username)){
-//            resp.getWriter().write("username provided does not match the user logged in, double check for confirmation of deletion");
-//            return;
-//        }
 
         try {
             orderServices.delete(username);

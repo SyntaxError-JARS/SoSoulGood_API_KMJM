@@ -74,16 +74,11 @@ public class MenuServlet extends HttpServlet {
 
         Menu reqMenu = mapper.readValue(req.getInputStream(), Menu.class);
 
-        //if(authMenu.getUsername().equals(reqMenu.getUsername())) {
 
         Menu updatedMenu = menuServices.update(reqMenu);
 
         String payload = mapper.writeValueAsString(updatedMenu);
         resp.getWriter().write(payload);
-        //} else {
-//            resp.getWriter().write("id provided does not match the user currently logged in");
-//            resp.setStatus(403);
-        //}
 
     }
 
@@ -114,7 +109,7 @@ public class MenuServlet extends HttpServlet {
         resp.addHeader("Access-Control-Allow-Origin", "*");
         resp.addHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         resp.addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-        //if(!checkAuth(req,resp)) return;
+
         if(req.getParameter("id") == null){
             resp.getWriter().write("In order to delete, please provide your user id as a verification into the url with ?id=your@id.here");
             resp.setStatus(401);
@@ -124,10 +119,6 @@ public class MenuServlet extends HttpServlet {
         String username = req.getParameter("id");
         Menu authMenu = (Menu) req.getSession().getAttribute("authMenu");
 
-//        if(!authMenuCard.getUsername().equals(username)){
-//            resp.getWriter().write("username provided does not match the user logged in, double check for confirmation of deletion");
-//            return;
-//        }
 
         try {
             menuServices.delete(username);
